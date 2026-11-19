@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#FAF6EE">
+  <title>Корпоративные подарки и шоколад с логотипом — Iznutrishop</title>
+  <meta name="description" content="Шоколад с логотипом и предсказаниями, подарочные наборы, жвачки и брендированные бенгальские огни. Санкт-Петербург, доставка по России и за рубеж.">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <style>
+    :root {
+      --paper:#faf6ee; --cream:#fffdf8; --linen:#efe6d8; --green:#11503f;
+      --deep:#0c3b2f; --ink:#28231e; --muted:#62584e; --line:#d8cdbf;
+      --display:"Playfair Display",Georgia,serif;
+      --text:"Golos Text",system-ui,sans-serif;
+      --body-size:1.0625rem; --hero-size:clamp(3.25rem,4.4vw,4rem);
+      --heading-size:clamp(2.5rem,3.4vw,3rem);
+      --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem;
+      --section:6rem; --edge:2rem; --gap:1.5rem; --max:77.5rem;
+      --quick:200ms; --ease:cubic-bezier(.22,1,.36,1);
+    }
+    *,*::before,*::after { box-sizing:border-box }
+    body { margin:0; color:var(--ink); background:var(--paper); font:400 var(--body-size)/1.55 var(--text) }
+    h1,h2,h3,p,figure,blockquote { margin:0 }
+    h1,h2,h3 { font-family:var(--display); font-weight:600; overflow-wrap:anywhere }
+    h1 { font-size:var(--hero-size); line-height:1.09; letter-spacing:-.048em }
+    h2 { font-size:var(--heading-size); line-height:1.13; letter-spacing:-.04em }
+    h3 { font-size:clamp(1.35rem,2vw,1.8rem); line-height:1.22; letter-spacing:-.025em }
+    a { color:var(--green); text-underline-offset:.22em }
+    :focus-visible { outline:3px solid var(--green); outline-offset:4px }
+    .inverted :focus-visible { outline-color:var(--cream) }
+    [id] { scroll-margin-top:1.25rem }
+    img { display:block; width:100%; height:100%; object-fit:cover }
+    .wrap { width:min(calc(100% - 2 * var(--edge)),var(--max)); margin-inline:auto }
+    .section { padding-block:var(--section) }
+    .skip { position:fixed; left:1rem; top:1rem; z-index:5; transform:translateY(-180%); padding:.75rem 1rem; background:var(--cream) }
+    .skip:focus { transform:none }
+    .header { border-bottom:1px solid var(--line) }
+    .bar { display:flex; align-items:center; justify-content:space-between; gap:var(--s2); min-height:5rem }
+    .brand { display:inline-flex; align-items:center; min-height:48px; color:var(--green); text-decoration:none; font:600 1.65rem/1 var(--display); letter-spacing:-.05em }
+    .links { display:flex; align-items:center; gap:clamp(1rem,3vw,2.5rem) }
+    .links a { display:flex; align-items:center; min-height:48px; color:var(--ink); font-size:.9375rem; font-weight:600; text-decoration:none }
+    .mobile-menu { display:none }
+    .hero { padding-top:clamp(2.5rem,5vw,4.5rem) }
+    .hero-grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); align-items:center; gap:var(--gap) }
+    .hero-copy { grid-column:span 5; padding-right:clamp(0rem,.8vw,.75rem) }
+    .hero-copy .category { display:block; margin-bottom:1rem; color:var(--green); font:600 .875rem/1.4 var(--text); letter-spacing:.1em; text-transform:uppercase }
+    .hero-copy strong { display:block; color:var(--green); font-weight:inherit }
+    .hero-copy p { max-width:38ch; margin-top:1.15rem; color:var(--muted) }
+    .hero-copy .button { margin-top:var(--s3) }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:52px; padding:.75rem 1.5rem; border-radius:4px; text-decoration:none; text-align:center; background:var(--green); color:var(--cream); font-weight:600; font-size:1rem; transition:background-color var(--quick),transform var(--quick) }
+    .button:active,.contact-links a:active { transform:translateY(1px) }
+    .hero-figure { grid-column:span 7 }
+    .hero-picture,.product-picture { display:block; overflow:hidden; aspect-ratio:4/3; background:var(--linen) }
+    .hero-picture { border-radius:4px }
+    figcaption { margin-top:.6rem; color:var(--muted); font-size:.875rem; line-height:1.45 }
+    .facts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:clamp(2rem,4.4vw,4rem); border-block:1px solid var(--line) }
+    .fact { display:flex; flex-wrap:wrap; align-items:baseline; gap:.25rem .75rem; padding:1.15rem 1.25rem }
+    .fact:first-child { padding-left:0 }
+    .fact + .fact { border-left:1px solid var(--line) }
+    .fact b { color:var(--green); font:600 1.5rem/1.2 var(--display) }
+    .fact span { font-size:.9375rem; color:var(--muted) }
+    .intro { display:grid; grid-template-columns:1fr minmax(0,25rem); gap:var(--gap); align-items:end; margin-bottom:var(--s4) }
+    .intro p,.product p,.split-copy p,.proof p,.faq p { color:var(--muted); max-width:50ch }
+    .products { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:var(--gap) }
+    .product { min-width:0; overflow:hidden; background:var(--cream); border:1px solid var(--line); border-radius:4px }
+    .product-copy { padding:var(--s3) }
+    .product p { margin-top:var(--s1) }
+    .product figcaption { padding-inline:var(--s3) }
+    .fortunes { background:var(--linen) }
+    .split { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(1.8rem,6vw,6rem); align-items:center }
+    .split-copy p { margin-top:var(--s2) }
+    .tags { display:flex; flex-wrap:wrap; list-style:none; gap:.55rem; padding:0; margin:var(--s3) 0 0 }
+    .tags li { padding:.35rem .6rem; border:1px solid #b6a690; border-radius:2px; color:var(--deep); font-size:.875rem }
+    .note { position:relative; display:grid; align-content:center; min-height:16rem; padding:clamp(1.5rem,4vw,3.5rem); background:var(--cream); border:1px solid #c8b69b; text-align:center }
+    .note::before { content:""; position:absolute; inset:8px; border:1px solid var(--line); pointer-events:none }
+    .note blockquote { color:var(--green); font:600 clamp(1.8rem,3.8vw,3.3rem)/1.15 var(--display); letter-spacing:-.035em }
+    .proof { display:grid; grid-template-columns:1.2fr 1fr; gap:var(--gap); margin-top:var(--s4) }
+    .proof article { padding:clamp(1.25rem,3vw,2.5rem); border-top:1px solid var(--line); background:var(--cream) }
+    .proof b { display:block; margin-bottom:.6rem; color:var(--green); font:600 clamp(2.4rem,4.8vw,3.85rem)/1.1 var(--display); letter-spacing:-.05em }
+    .proof p { margin-top:.65rem }
+    .proof a,.footer a { display:inline-flex; align-items:center; min-height:44px }
+    .order { background:var(--cream); border-block:1px solid var(--line) }
+    .order .split,.contacts .split { align-items:start }
+    .steps { max-width:44ch; padding-left:1.4rem; margin:var(--s3) 0 0 }
+    .steps li { padding:.65rem 0 .65rem .3rem; border-top:1px solid var(--line) }
+    .steps li::marker { color:var(--green); font-weight:600 }
+    .delivery { max-width:45ch; margin-top:1rem; color:var(--muted) }
+    .faq h3 { margin-bottom:1rem }
+    .faq details { border-top:1px solid var(--line) }
+    .faq details:last-child { border-bottom:1px solid var(--line) }
+    summary { cursor:pointer; list-style:none }
+    summary::-webkit-details-marker { display:none }
+    .faq summary { display:flex; justify-content:space-between; align-items:center; gap:1rem; min-height:52px; padding:.8rem 0; font-weight:600 }
+    .faq summary::after { content:"+"; color:var(--green); font-size:1.25rem }
+    .faq details[open] summary::after { content:"−" }
+    .faq p { padding:0 1.25rem 1rem 0 }
+    .contacts { background:var(--green); color:var(--cream) }
+    .contacts .split-copy p { color:inherit }
+    .contact-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; padding:0; margin:0; list-style:none }
+    .contact-links a { display:flex; align-items:center; min-height:52px; padding:.75rem .9rem; font-size:1rem; color:inherit; border:1px solid #a4bdb2; border-radius:3px; text-decoration:none; transition:background-color var(--quick),color var(--quick),transform var(--quick) }
+    .contact-note { margin-top:var(--s2); font-size:.9375rem }
+    .contact-note span { white-space:nowrap }
+    .footer { background:var(--deep); color:var(--cream); padding-block:1rem; font-size:.875rem }
+    .footer .wrap { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.5rem 1rem }
+    .footer a { color:inherit }
+    @media (hover:hover) {
+      .links a:hover { text-decoration:underline }
+      .button:hover { background:var(--deep); transform:translateY(-2px) }
+      .contact-links a:hover { color:var(--deep); background:var(--cream); transform:translateY(-2px) }
+    }
+    @keyframes hero-settle { from { opacity:.84; transform:scale(1.035) } to { opacity:1; transform:scale(1) } }
+    .hero-settle { animation:hero-settle 480ms var(--ease) both }
+    @keyframes arrive { from { opacity:.6; transform:translateY(12px) } to { opacity:1; transform:none } }
+    .arrive { animation:arrive 420ms var(--ease) both }
+    .arrive:focus-within { animation:none }
+    @supports (clip-path:inset(0)) {
+      .photo-pending img { clip-path:inset(0 var(--mask,100%) 0 0) }
+      .photo-reveal img { animation:reveal var(--reveal-time,520ms) var(--ease) both }
+      @keyframes reveal { from { clip-path:inset(0 var(--mask,100%) 0 0) } to { clip-path:inset(0) } }
+    }
+    @media (max-width:1023px) {
+      :root { --edge:1.5rem; --gap:1.25rem; --section:4.5rem; --hero-size:clamp(2.55rem,5.3vw,3.5rem) }
+      .hero-grid { grid-template-columns:repeat(8,minmax(0,1fr)) }
+      .hero-copy,.hero-figure { grid-column:span 4; padding-right:0 }
+      .products { grid-template-columns:repeat(3,minmax(0,1fr)) }
+      .product-copy { padding:1rem }
+      .product figcaption { padding-inline:1rem }
+    }
+    @media (max-width:767px) {
+      :root { --edge:1.25rem; --section:3.5rem; --body-size:1rem; --hero-size:clamp(2rem,7vw,2.375rem); --heading-size:clamp(1.75rem,5.8vw,2rem); --mask:20%; --reveal-time:320ms }
+      .bar { min-height:4rem; position:relative }
+      .bar > .links { display:none }
+      .mobile-menu { display:block }
+      .mobile-menu summary { display:flex; align-items:center; min-height:48px; color:var(--green); font-size:.9375rem; font-weight:600 }
+      .mobile-menu .links { position:absolute; top:calc(100% - 1px); right:0; z-index:2; display:grid; min-width:12.5rem; gap:0; background:var(--cream); border:1px solid var(--line); padding:.25rem .75rem }
+      .hero { padding-top:2.25rem }
+      .hero-grid,.products,.split,.intro,.proof { grid-template-columns:minmax(0,1fr) }
+      .hero-copy,.hero-figure { grid-column:auto }
+      .hero-copy .button { width:100% }
+      .hero-picture { aspect-ratio:4/5 }
+      .fact { display:block; padding:.85rem .5rem }
+      .fact b,.fact span { display:block }
+      .fact b { font-size:1rem }
+      .fact span { margin-top:.25rem; font-size:.875rem }
+      .intro { gap:.75rem; margin-bottom:var(--s3) }
+      .note { min-height:12rem }
+    }
+    @media (max-width:360px) { :root { --edge:1rem } }
+    @media (prefers-reduced-motion:reduce) {
+      *,*::before,*::after { animation:none !important; transition:none !important }
+      .photo-pending img,.photo-reveal img { clip-path:none }
+      .button,.contact-links a { transform:none !important }
+    }
+  </style>
+  <link rel="canonical" href="https://mkbelosh450-oss.github.io/iznutrishop/">
+</head>
+<body id="top">
+  <a class="skip" href="#main">К содержанию</a>
+  <header class="header">
+    <div class="wrap bar">
+      <a class="brand" href="#top" aria-label="Iznutrishop, начало страницы">Iznutrishop</a>
+      <nav class="links" aria-label="Основная навигация">
+        <a href="#catalog">Ассортимент</a><a href="#order">Как заказать</a><a href="#contacts">Контакты</a>
+      </nav>
+      <details class="mobile-menu">
+        <summary>Меню</summary>
+        <nav class="links" aria-label="Основная навигация">
+          <a href="#catalog">Ассортимент</a><a href="#order">Как заказать</a><a href="#contacts">Контакты</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="offer">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1 id="offer"><span class="category">Корпоративные подарки</span>Шоколад с вашим логотипом <strong>и предсказаниями</strong></h1>
+            <p>Делаем подарки для клиентов и сотрудников. Бесплатно подготовим макет обёртки, а под ней напечатаем предсказание или ваш текст.</p>
+            <a class="button" href="#contacts">Рассчитать стоимость</a>
+          </div>
+          <figure class="hero-figure">
+            <picture class="hero-picture">
+              <source media="(max-width:767px)" srcset="./assets/hero-mobile.webp" width="640" height="800">
+              <img src="./assets/hero.webp" width="1200" height="900" loading="eager" fetchpriority="high" alt="Открытая изумрудная коробка с шоколадками в светлых обёртках и золотистой фольге">
+            </picture>
+            <figcaption>Иллюстрация оформления подарочного набора</figcaption>
+          </figure>
+        </div>
+        <div class="facts" aria-label="Условия заказа шоколада">
+          <div class="fact"><b>От 50 шт.</b><span>тираж шоколадок</span></div>
+          <div class="fact"><b>8 вкусов</b><span>можно собрать ассорти</span></div>
+          <div class="fact"><b>2–7 дней</b><span>рабочих, на изготовление</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="catalog" tabindex="-1" aria-labelledby="catalog-title">
+      <div class="wrap">
+        <div class="intro" data-appear>
+          <h2 id="catalog-title">Что можно заказать</h2>
+          <p>Шоколадки по отдельности, открытки, наборы и другие подарки с вашим логотипом.</p>
+        </div>
+        <div class="products">
+          <article class="product">
+            <figure><div class="product-picture" data-reveal><img src="./assets/chocolate.webp" width="640" height="480" loading="lazy" decoding="async" alt="Шоколадка в светлой обёртке, долька шоколада и полоска для послания"></div><figcaption>Иллюстрация формата</figcaption></figure>
+            <div class="product-copy"><h3>Шоколад с логотипом</h3><p>Отдельные шоколадки, шоколад на открытке или визитке, подарочные наборы. Из восьми вкусов можно собрать ассорти в одном тираже.</p></div>
+          </article>
+          <article class="product">
+            <figure><div class="product-picture"><img src="./assets/gum.webp" width="520" height="390" loading="lazy" decoding="async" alt="Две упаковки жвачки в кремовом и изумрудном цветах"></div><figcaption>Иллюстрация формата</figcaption></figure>
+            <div class="product-copy"><h3>Жвачки с логотипом</h3><p>Жвачки в брендированной упаковке для подарков клиентам и участникам мероприятий.</p></div>
+          </article>
+          <article class="product">
+            <figure><div class="product-picture"><img src="./assets/sparklers.webp" width="520" height="390" loading="lazy" decoding="async" alt="Бенгальские огни в изумрудном бумажном чехле"></div><figcaption>Иллюстрация формата</figcaption></figure>
+            <div class="product-copy"><h3>Бенгальские огни</h3><p>Брендируем упаковку для новогодних подарков, свадеб и мероприятий.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section fortunes" aria-labelledby="fortunes-title">
+      <div class="wrap split">
+        <div class="split-copy" data-appear>
+          <h2 id="fortunes-title">Предсказание под обёрткой</h2>
+          <p>Выберите готовую подборку или пришлите свои фразы, промокоды и тексты для розыгрыша. На самой обёртке можем разместить контакты или QR-код для записи или скидки.</p>
+          <ul class="tags" aria-label="Подборки предсказаний"><li>Универсальные</li><li>Новогодние</li><li>Женские</li><li>Мужские</li><li>Детские</li></ul>
+        </div>
+        <figure class="note"><blockquote>«Вы выиграли подарок!»</blockquote><figcaption>Пример фразы для розыгрыша</figcaption></figure>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="proof-title">
+      <div class="wrap">
+        <h2 id="proof-title" data-appear>Заказы и отзывы</h2>
+        <div class="proof">
+          <article><h3><b>Около 400</b> подарочных наборов</h3><p>Заказчик пришёл по рекомендации и заказывает у нас второй год подряд.</p></article>
+          <article><h3>Отзывы на Яндекс Картах</h3><p>В карточке Iznutrishop можно посмотреть оценку и прочитать отзывы покупателей.</p><a href="https://yandex.ru/maps/org/iznutrishop/30188845165?si=58d55re00g60t8v45ktvpyzjt0">Читать отзывы</a></article>
+        </div>
+      </div>
+    </section>
+    <section class="section order" id="order" tabindex="-1" aria-labelledby="order-title">
+      <div class="wrap split">
+        <div>
+          <h2 id="order-title" data-appear>Как заказать</h2>
+          <ol class="steps">
+            <li>Напишите, какой подарок нужен, какой тираж планируете и к какой дате.</li>
+            <li>Пришлите логотип и текст, если хотите свою фразу. Мы бесплатно подготовим макет обёртки.</li>
+            <li>Согласуем макет и срок изготовления, затем подготовим заказ к отправке.</li>
+          </ol>
+          <p class="delivery">Мы в Санкт-Петербурге. Отправляем в Москву, по России и за рубеж.</p>
+        </div>
+        <div class="faq">
+          <h3>Частые вопросы</h3>
+          <details><summary>Сколько стоит заказ?</summary><p>Стоимость зависит от формата и тиража. Напишите нам, чтобы получить расчёт под ваш заказ.</p></details>
+          <details><summary>Какой минимальный тираж?</summary><p>Шоколадки с логотипом можно заказать от 50 штук.</p></details>
+          <details><summary>Сколько времени займёт изготовление?</summary><p>От 2 до 7 рабочих дней в зависимости от загруженности. Доставку согласуем отдельно.</p></details>
+          <details><summary>Можно ли смешать вкусы?</summary><p>Да. У нас восемь вкусов, из них можно собрать ассорти в одном тираже.</p></details>
+          <details><summary>Нужно ли готовить макет?</summary><p>Макет обёртки подготовим бесплатно. Пришлите логотип и фразы, которые хотите напечатать.</p></details>
+        </div>
+      </div>
+    </section>
+    <section class="section contacts inverted" id="contacts" tabindex="-1" aria-labelledby="contacts-title">
+      <div class="wrap split">
+        <div class="split-copy">
+          <h2 id="contacts-title">Рассчитаем ваш тираж</h2>
+          <p>Напишите, что хотите заказать, сколько штук нужно и к какой дате. Выберите удобный способ связи.</p>
+        </div>
+        <div>
+          <ul class="contact-links">
+            <li><a href="https://max.ru/u/f9LHodD0cOI1_4lVTB2rwcpAc5E5TJ-piZWPZER1TQK4if0hAJvtI0WqFTw">MAX</a></li>
+            <li><a href="https://t.me/m_iznutri">Telegram</a></li>
+            <li><a href="https://vk.ru/iznutri.shop">ВКонтакте</a></li>
+            <li><a href="mailto:iznutrishop@mail.ru">Электронная почта</a></li>
+          </ul>
+          <p class="contact-note">Номер для сообщений <span>+7 981 295-67-76</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer inverted"><div class="wrap"><span>Iznutrishop · Санкт-Петербург</span><a href="#top">К началу страницы</a></div></footer>
+  <script>
+    const menu = document.querySelector('.mobile-menu');
+    for (const link of menu.querySelectorAll('a')) {
+      link.addEventListener('click', () => { menu.open = false; });
+    }
+    menu.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary').focus();
+      }
+    });
+
+    const motion = matchMedia('(prefers-reduced-motion: reduce)');
+    if (!motion.matches) {
+      const heroPhoto = document.querySelector('.hero-picture img');
+      const introduceHero = () => {
+        if (!motion.matches && heroPhoto.naturalWidth) heroPhoto.classList.add('hero-settle');
+      };
+      if (heroPhoto.complete) introduceHero();
+      else heroPhoto.addEventListener('load', introduceHero, { once: true });
+    }
+
+    if ('IntersectionObserver' in window && !motion.matches) {
+      const sectionObserver = new IntersectionObserver((entries, observer) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting || entry.intersectionRatio < 0.2) continue;
+          if (!motion.matches) entry.target.classList.add('arrive');
+          observer.unobserve(entry.target);
+        }
+      }, { threshold: 0.2 });
+      for (const target of document.querySelectorAll('[data-appear]')) {
+        sectionObserver.observe(target);
+      }
+
+      const photo = document.querySelector('[data-reveal]');
+      const image = photo.querySelector('img');
+      const reveal = () => {
+        photo.classList.remove('photo-pending');
+        if (!motion.matches && image.naturalWidth) photo.classList.add('photo-reveal');
+      };
+      const photoObserver = new IntersectionObserver(([entry], observer) => {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.33) return;
+        observer.disconnect();
+        if (image.complete) reveal();
+        else {
+          image.addEventListener('load', reveal, { once: true });
+          image.addEventListener('error', reveal, { once: true });
+        }
+      }, { threshold: 0.33 });
+      if (photo.getBoundingClientRect().top >= innerHeight) {
+        photo.classList.add('photo-pending');
+      }
+      photoObserver.observe(photo);
+
+      motion.addEventListener('change', (event) => {
+        if (!event.matches) return;
+        sectionObserver.disconnect();
+        photoObserver.disconnect();
+        photo.classList.remove('photo-pending', 'photo-reveal');
+      });
+    }
+  </script>
+</body>
+</html>
